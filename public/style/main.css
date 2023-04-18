@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#conversation-container > div {
+    padding: 20px 10px;
+    color: #fff;
+}
+
+#conversation-container > div:nth-child(odd) {
+    background-color: #444654;
+}
+
+#conversation-container > div:nth-child(even) {
+    background-color: #343541;
+}
+
+pre {
+    margin: 10px 0 5px;
+}

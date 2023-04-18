@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/main.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+      document.addEventListener("DOMContentLoaded", () => {
+        const copyCodeButtons = Array.from(document.querySelectorAll("button")).filter((button) => button.innerText === "Copy code");
+
+        copyCodeButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const codeBlock = button.nextElementSibling.querySelector("code");
+            const range = document.createRange();
+            const selection = window.getSelection();
+
+            range.selectNodeContents(codeBlock);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            try {
+              document.execCommand("copy");
+              selection.removeAllRanges();
+              alert("Code copied to clipboard.");
+            } catch (err) {
+              console.error("Unable to copy code:", err);
+              alert("Failed to copy code.");
+            }
+          });
+        });
+      });
+    </script>
+
+    <title>Shared Conversation</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-00">
+    <script>
+      !(function () {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          c.remove("light", "dark");
+          var e = localStorage.getItem("theme");
+          if ("system" === e || (!e && true)) {
+            var t = "(prefers-color-scheme: dark)",
+              m = window.matchMedia(t);
+            if (m.media !== t || m.matches) {
+              d.style.colorScheme = "dark";
+              c.add("dark");
+            } else {
+              d.style.colorScheme = "light";
+              c.add("light");
+            }
+          } else if (e) {
+            c.add(e || "");
+          }
+          if (e === "light" || e === "dark") d.style.colorScheme = e;
+        } catch (e) {}
+      })();
+    </script>
+    <div class="flex py-8 justify-center py-8">
+      <div class="py-8">
+        <h1 class="text-2xl font-bold mb-4">Shared Conversation</h1>
+        <div id="conversation-container" class="prose container mx-auto"><%- conversationContent %></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Install Chrome Extension</title>
+    <link rel="stylesheet" href="/style/main.min.css" />
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-xl font-bold mb-4">Install our Chrome Extension</h1>
+        <p class="text-gray-600 mb-4">Click the button below to download and install our Chrome extension.</p>
+        <a href="#" download class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Download and Install </a>
+      </div>
+    </div>
+    <script>
+      document.querySelector("a").addEventListener("click", (e) => {
+        e.preventDefault();
+        const a = document.createElement("a");
+        a.href = e.target.href;
+        a.download = "sharegpt.crx";
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    </script>
+  </body>
+</html>
