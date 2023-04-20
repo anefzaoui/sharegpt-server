@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./conversations/*.{html,js}", "./views/*.{html,js,ejs}"],
+  content: [
+    "./conversations/*.{html,js}",
+    "./views/*.{html,js,ejs}"
+  ],
     presets: [],
   darkMode: 'media', // or 'class'
   theme: {
