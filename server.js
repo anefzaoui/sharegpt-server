@@ -10,7 +10,6 @@ const sanitizeHtml = require("sanitize-html");
 // Enable CORS for all routes
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
-
 app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
